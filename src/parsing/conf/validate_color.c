@@ -39,7 +39,6 @@ static void free_color(char **to_free)
 		i++;
 	}
 	free(to_free);
-	ft_putendl_fd("error settting color", 2);
 }
 
 static int validate_color_loop(char **rbg, int i)
@@ -71,7 +70,7 @@ int validate_color(t_data *data, char *line, int pos)
 	int color[3];
 
 	if (commas(line) != 2)
-		return (ft_putendl_fd("Error color", 2), 0);
+		return (ft_putendl_fd("Error commas in color conf", 2), 0);
 	rbg = ft_split(line, ',');
 	if (!rbg[0] || !rbg[1] || !rbg[2] || rbg[3])
 		return (free_color(rbg), ft_putendl_fd("Error color", 2), 0);
